@@ -1,0 +1,942 @@
+*{
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(18, 18, 18);
+}  
+
+body{
+    margin: 0;
+}
+
+header{
+    background-color: rgb(18, 18, 18);
+
+    height: 44px;
+    color: white;
+    display: flex;
+    padding-left: 40px;
+}
+
+header a{
+    color: white;
+    padding: 10px 20px 10px 5px;
+}
+
+header a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+#navigation{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#languages{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+#languages img{
+    width: 16px;
+    height: 16px;
+}
+
+#flag{
+    border: 1px solid white;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+#info{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#paypal{
+    height: 100%;
+    width: 204px;
+    background-color: rgb(30, 30, 30);
+    background-image: url('./icons/paypal.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav{
+    background-color: rgb(2, 77, 223);
+    height: 95px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 180px;
+    height: 32px;
+    margin-right: 18px;
+}
+
+.logo img{
+    width: fit-content;
+    height: 100%;
+}
+
+nav a:hover,
+nav a{
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#functions #login,
+#info div,
+.nav-button{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#functions #login{
+    padding: 0 10px;
+}
+
+.searchbar{
+    width: 370px;
+    height: 47px;
+    display: flex;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px 1px 1px 1px;
+    margin-right: 20px;
+    border: 1px solid rgb(246, 246, 246);
+    border-radius: 4px;
+    background-color: rgb(33, 99, 227);
+}
+
+#mobilebar{
+    display: none;
+}
+
+input::placeholder{
+    color: white;
+}
+
+.searchbar input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    color: black;
+}
+
+#sbutton{
+    height: 46px;
+    width: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sbutton:hover{
+    background-color: rgb(2, 65, 187);
+    border-radius: 4px;
+}
+
+.searchbar img#search {
+    width: 22px;
+    height: 22px;
+}
+
+#functions #login:hover,
+#navigation div:hover{
+    background-color: rgb(2, 65, 187);
+}
+
+#functions{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+}
+
+#person{
+    width: 24px;
+    height: 24px;
+}
+
+#Altro{
+    display: none;
+}
+
+#hero{
+    width: 100%;
+    min-height: 56vw;
+
+    background-image: url("./cards/Rkomi_Large_02.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 20px 0px;
+    position: relative;
+}
+
+#heroblur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+    top: 0;
+}
+
+#description{
+    z-index: 1;
+    color: white;
+    padding: 40px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    /* position: absolute; */
+    /* top: 0; */
+}
+
+#description h3{
+    margin-bottom: 8px;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+#description p{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    margin: 0px 0px 25px 0px;
+}
+
+#description a{
+    background-color: rgb(2, 77, 223);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 4px;
+}
+
+#main{
+    display: flex;
+    background-color: rgb(246, 246, 246);
+    justify-content: center;
+    padding: 0 2.5%;
+}
+
+#content{
+    /* background-color: pink; */
+    width: 100%;
+    margin-right: 1%;
+    padding-top: 1.5%;
+}
+
+#side{
+    display: flex;
+    background-color: white;
+    width: 332px;
+    text-align: center;
+    flex-shrink: 0; 
+    flex-grow: 0;
+    flex-direction: column;
+}
+
+#sidebar{  
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card:hover a{
+    text-decoration: underline;
+    color:rgb(2, 77, 223)
+}
+
+.card:hover .overlay{
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+.card h3{
+    margin: 0 0 10% 2%;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+.card p{
+    font-size: 0.9em;
+    font-weight: 500;
+    color: grey;
+    margin-top: 4%;
+    margin-left: 2%;
+} 
+
+#sidebar .card{
+    padding: 0% 5%;
+}
+
+#main-cards{
+    display: flex;
+    /* background-color: yellow; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    color: rgb(18, 18, 18);
+    text-decoration: none;
+}
+
+.cmain{
+    height: 100%;
+    width: 48%;
+    padding: 0 5px;
+}
+
+.big-card{
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+#holder{
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    opacity: 0;
+}
+
+#featured .overlay{
+    max-width: 90%;
+}
+
+.tsov{
+    width: 90%;
+    height: 100%;
+    background-color: rgba(2, 77, 223, 0.4);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.solidov{
+    width: 10%;
+    height: 100%;
+    background-color: rgb(2, 77, 223);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 900;
+    box-shadow: none;
+}
+
+#most-wanted{
+    display: flex;
+    justify-content: space-between;
+}
+
+#most-wanted h3{
+    font-size: 1em;
+}
+
+#side h1,
+#scopri h1,
+#featured h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#scopri{
+    position: relative;
+    margin-bottom: 5%;
+}
+
+#featured img{
+    max-width: 90%;
+}
+
+#featured{
+    position: relative;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-top: 1px solid rgb(191, 191, 191);
+    border-bottom: 1px solid rgb(191, 191, 191);
+}
+
+#discover{
+    display: flex;
+    /* background-color: yellow; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dis{
+    height: 100%;
+    width: 31%;
+    padding: 0 5px;
+}
+
+#discover h3{
+    font-size: 1em;
+}
+
+#discover .card h3{
+    margin: 0 0 3.5% 2%;
+}
+
+#sidebar .card h3{
+    text-align: start;
+    margin: 3% 0 15% 4%;
+}
+
+.cat{
+    text-transform: uppercase;
+    color: blue;
+    font-size: small;
+    margin: 5% 0 5% 2%;
+}
+
+footer{
+    background-color: rgb(18, 18, 18);
+    width: 100%;
+    height: auto;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+#footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 64px 40px;
+}
+
+#promo{
+    width: 40%;
+    height: 100%;
+    padding-right: 80px;
+}
+
+#promo img{
+    padding: 0;
+    margin-bottom: 32px;
+}
+
+#collegamenti{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.elenco{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    padding: 0 32px 0 0;
+}
+
+.elenco h3{
+    font-size: 1em;
+    margin: 0;
+}
+
+.lista{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.lista a{
+    padding: 15px 0;
+}
+
+.lista a:hover{
+    text-decoration: underline;
+}
+
+#social{
+    display: flex;
+    flex-direction: row;
+    margin-left: -10px;
+}
+
+.app-icon{
+    padding: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.app-icon:hover{
+    cursor: pointer;
+    background-color: rgb(30, 30, 30);
+}
+
+#disclaimer{
+    margin-top: 32px;
+}
+
+#legal{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px 40px;
+}
+
+#divider{
+    padding: 0 40px;
+}
+
+#divider div{
+    border-top: 1px solid rgb(191, 191, 191);
+    border-radius: 4px;
+}
+
+#copyright{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+#privacy{
+    width: 50%;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    margin-left: -8px;
+}
+
+#copyright p{
+    padding-top: 32px;
+    font-size: 14px;
+}
+
+#privacy a{
+    padding: 2.8px 8px;
+    font-size: 14px;
+}
+
+#privacy a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.middle{
+    border-left: 1px solid rgb(191, 191, 191);
+    border-right: 1px solid rgb(191, 191, 191);
+}
+
+#menu{
+    display: none;
+}
+
+.div-mobile{
+    display: none;
+}
+
+#left-navbar{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+#down-arrow{
+    display: none;
+}
+
+#scroll-arrow{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    background-color: rgb(2, 77, 223);
+    border-radius: 4px;
+    right: 0%;
+    top: 50%;
+
+    background-image: url("./icons/rscroll.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#scroll-arrow:hover{
+    cursor: pointer;
+    background-color: rgb(1, 57, 167);
+}
+
+@media (max-width: 1400px) {
+    #Altro{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    #Tempo{
+        display: none;
+    }
+
+    #most-wanted{
+        width: 120%;
+    }
+
+    #featured .overlay{
+        max-width: 95%;
+    }
+
+    #featured img {
+        max-width: 95%;
+    }
+
+    .feat-max{
+        display: none;
+    }
+
+    .card.featured{
+        z-index: 0;
+    }
+
+    #side{
+        z-index: 1;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    #Sport{
+        display: none;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    #Arte{
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    #Festival{
+        display: none;
+    }
+
+    #Musica{
+        display: none;
+    }
+
+    #collegamenti{
+        flex-wrap: wrap;
+    }
+
+    .elenco{
+        width: 45%;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    #most-wanted{
+        width: 100%;
+    }
+
+    .dis-max{
+        display: none;
+    }
+
+    .dis{
+        width: 48%;
+    }
+
+    header{
+        height: 42px;
+        padding-left: 18px;
+    }
+
+    #info{
+        display: none;
+    }
+
+    #Altro{
+        display: none;
+    }
+
+    nav{
+        height: 60px;
+        padding: 0 16px;
+    }
+
+    .searchbar{
+        padding: 0;
+    }
+
+    nav .logo{
+        height: 24px;
+    }
+
+    #menu{
+        display: block;
+        margin-right: 10px;
+    }
+
+    #login a{
+        display: none;
+    }
+
+    #main{
+        padding: 0 1%;
+        flex-direction: column;
+    }
+
+    #side{
+        width: 100%;
+        background-color: transparent;
+        border-top: 1px solid rgb(191, 191, 191);
+        padding: 0;
+    }
+
+    #sidebar{
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    #sidebar .card{
+        width: 48%;
+        padding: 0;
+    }
+
+    #description{
+        margin: 0;
+    }
+
+    #scroll-arrow.sc-dis-right{
+        display: block;
+    }
+}
+
+@media (max-width: 720px) {
+
+    #scroll-arrow.sc-feat-right{
+        display: block;
+    }
+
+    #main-cards{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .card{
+        width: auto;
+    }
+
+    .dis-max-two{
+        display: none;
+    }
+
+    .feat-max-two{
+        display: none;
+    }
+
+    #most-wanted{
+        width: 100%;
+    }
+
+    .card.featured{
+        width: 100%;
+    }
+
+    #featured img{
+        max-width: 100%;
+    }
+
+    #featured .overlay{
+        max-width: 100%;
+    }
+
+    #sidebar{
+        flex-direction: column;
+        justify-content: unset;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    #sidebar .card{
+        width: 95%;
+        padding: 0;
+    }
+
+    #main{
+        padding: 0 10px;
+    }
+
+    #description p{
+        display: none;
+    }
+
+    #description h3{
+        padding: 0px 16px 16px 0px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    #hero{
+        background-image: url("./cards/Rkomi_Medium_02.webp");
+    }
+
+    #webbar{
+        display: none;
+    }
+
+    #functions{
+        width: 100%;
+    }
+
+    #mobilebar{
+        display: flex;
+        width: 100%;
+    }
+
+    #barwrapper{
+        display: block;
+        padding: 16px;
+        background-color:rgb(2, 77, 223);
+    }
+
+    #legal{
+        flex-direction: column;
+        padding: 40px 16px 40px 16px;
+        align-items: center;
+    }
+
+    #copyright{
+        width: 100%;
+        justify-content: center;
+    }
+
+    #privacy{
+        width: 100%;
+        justify-content: center;
+        padding-top: 40px;
+    }
+
+    #footer{
+        flex-direction: column;
+        padding: 64px 16px 0px 16px;
+    }
+
+    #promo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #promo .logo{
+        height: 24px;
+        width: 135px;
+    }
+
+    #copyright p {
+        padding-top: 0;
+    }
+
+    .lista{
+        display: none;
+    }
+
+    .elenco{
+        width: 100%;
+        justify-content: space-between;
+        padding: 20px 8px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #collegamenti{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    #down-arrow{
+        display: block;
+        height: 27px;
+        width: 27px;
+    }
+
+    .div-mobile{
+        display: block;
+    }
+
+    .div-desktop{
+        display: none;
+    }
+
+    #divider{
+        padding: 0 16px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 720px) {
+
+    #hero {
+        min-height: 30vw;
+    }
+    
+}
