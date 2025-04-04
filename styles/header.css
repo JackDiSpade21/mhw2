@@ -54,7 +54,7 @@ header a:hover{
     height: 100%;
     width: 204px;
     background-color: rgb(30, 30, 30);
-    background-image: url('./icons/paypal.png');
+    background-image: url('/icons/paypal.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
