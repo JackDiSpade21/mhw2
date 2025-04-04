@@ -1,0 +1,204 @@
+nav{
+    background-color: rgb(2, 77, 223);
+    height: 95px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 180px;
+    height: 32px;
+    margin-right: 18px;
+}
+
+.logo img{
+    width: fit-content;
+    height: 100%;
+}
+
+nav a:hover,
+nav a{
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#functions #login,
+#info div,
+.nav-button{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#functions #login{
+    padding: 0 10px;
+}
+
+.searchbar{
+    width: 370px;
+    height: 47px;
+    display: flex;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px 1px 1px 1px;
+    margin-right: 20px;
+    border: 1px solid rgb(246, 246, 246);
+    border-radius: 4px;
+    background-color: rgb(33, 99, 227);
+}
+
+#mobilebar{
+    display: none;
+}
+
+input::placeholder{
+    color: white;
+}
+
+.searchbar input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    color: black;
+}
+
+#sbutton{
+    height: 46px;
+    width: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sbutton:hover{
+    background-color: rgb(2, 65, 187);
+    border-radius: 4px;
+}
+
+.searchbar img#search {
+    width: 22px;
+    height: 22px;
+}
+
+#functions #login:hover,
+#navigation div:hover{
+    background-color: rgb(2, 65, 187);
+}
+
+#functions{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+}
+
+#person{
+    width: 24px;
+    height: 24px;
+}
+
+#Altro{
+    display: none;
+}
+
+@media (max-width: 1400px) {
+    #Altro{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    #Tempo{
+        display: none;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    #Sport{
+        display: none;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    #Arte{
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    #Festival{
+        display: none;
+    }
+
+    #Musica{
+        display: none;
+    }
+
+}
+
+@media (max-width: 900px) {
+    #Altro{
+        display: none;
+    }
+
+    nav{
+        height: 60px;
+        padding: 0 16px;
+    }
+
+    .searchbar{
+        padding: 0;
+    }
+
+    nav .logo{
+        height: 24px;
+    }
+
+    #menu{
+        display: block;
+        margin-right: 10px;
+    }
+
+    #login a{
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    #webbar{
+        display: none;
+    }
+
+    #functions{
+        width: 100%;
+    }
+
+    #mobilebar{
+        display: flex;
+        width: 100%;
+    }
+
+    #barwrapper{
+        display: block;
+        padding: 16px;
+        background-color:rgb(2, 77, 223);
+    }
+}
