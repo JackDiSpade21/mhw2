@@ -160,7 +160,7 @@ footer a{
     right: 0%;
     top: 50%;
 
-    background-image: url("./icons/rscroll.png");
+    background-image: url("/icons/rscroll.png");
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
