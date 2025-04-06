@@ -5,9 +5,15 @@ const sport = document.querySelector("#Sport");
 const tempo = document.querySelector("#Tempo");
 const altro = document.querySelector("#Altro");
 
+const otherMusic = document.querySelector("#other-music");
+const otherFestival = document.querySelector("#other-festival");
+const otherArte = document.querySelector("#other-art");
+const otherSport = document.querySelector("#other-sport");
+const otherTempo = document.querySelector("#other-tempo");
+
 const MODAL_MUSICA = [
     "Alternative/Indie Rock", "Canto Corale", "Chanson", "Concerti", "Concerto di Natale", "Dance Band",
-    "Dance Elettronica", "Flamenco/Rumba", "Folk/Country", "Hard Rock/Metal", "Hip-hop/R&B", "Italiano",
+    "Dance Elettronica", "Flamenco/ Rumba", "Folk/ Country", "Hard Rock/Metal", "Hip-hop/ R&B", "Italiano",
     "Jazz/Blues", "Musica classica", "Musica contemporanea per adulti", "Musica religiosa", "Musica tradizionale", "Progressive Rock",
     "Reggae", "Rock/Pop", "Soul", "World Music", "Altri - Musica", "Tutti Musica ➔"
 ];
@@ -37,13 +43,19 @@ const MODAL_TEMPO = [
     "Balletto per bambini", "Circo per tutta la famiglia", "Feste", "Fiere & Esposizioni", "Musica & Teatro per bambini",
     "Musica per bambini", "Opera per bambini", "Partecipazione", "Per tutta la famiglia", "Spettacoli di burattini",
     "Spettacoli di magia per bambini", "Spettacoli per tutta la famiglia", "Spettacoli sul ghiaccio", "Teatro per bambini",
-    "Trasporto", "Viaggi evento", "Visite guidate/Esposizioni", "Altro", "Altri - Tempo libero", "Tutti Tempo Libero ➔"
+    "Trasporto", "Viaggi evento", "Visite guidate/ Esposizioni", "Altro", "Altri - Tempo libero", "Tutti Tempo Libero ➔"
 ];
 
 const navButtons = [musica, festival, arte, sport, tempo, altro];
+const otherButtons = [otherMusic, otherFestival, otherArte, otherSport, otherTempo];
 
 for(let i = 0; i < navButtons.length; i++) {
     navButtons[i].addEventListener("click", openModalNav);
+}
+
+for(let i = 0; i < otherButtons.length; i++) {
+    console.log(otherButtons[i]);
+    otherButtons[i].addEventListener("click", changeOtherNav);
 }
 
 const modal = document.querySelector("#modal-nav-desktop");
@@ -59,6 +71,7 @@ const discoverMore = document.createElement("h2");
 function closeModalNav(event) {
     navBox.innerHTML = "";
     wrapper.innerHTML = "";
+    wrapper.classList.remove("nav-wrap-size");
     modal.classList.add('hidden');
     navSidebar.classList.add('hidden');
     navSidebar.classList.remove('nav-sidebar-style');
@@ -104,6 +117,11 @@ function fillModalNav(contentList, rows, columns) {
     discoverMore.innerHTML = "Scoprire </br> di più";
     navBox.appendChild(discoverMore);
 
+    navFiller(contentList, rows, columns);
+}
+
+function navFiller(contentList, rows, columns) {
+
     let navList = [];
     for (let i = 0; i < columns; i++) {
         navList[i] = document.createElement("div");
@@ -135,28 +153,27 @@ function fillModalNavOther(contentList, rows, columns) {
     discoverMore.classList.add("nav-wrap-title");
     discoverMore.classList.remove("nav-title");
     discoverMore.innerHTML = "Scoprire di più";
+    wrapper.classList.add("nav-wrap-size");
     wrapper.appendChild(discoverMore);
     wrapper.appendChild(navBox);
     
+    navFiller(contentList, rows, columns);
 
-    let navList = [];
-    for (let i = 0; i < columns; i++) {
-        navList[i] = document.createElement("div");
-        navList[i].classList.add("nav-list");
-        navBox.appendChild(navList[i]);
-    }
+}
 
-    for (let i = 0; i < contentList.length; i++) {
-        let content = contentList[i];
-        let navElement = document.createElement("a");
-        navElement.href = "#";
-        navElement.textContent = content;
+function changeOtherNav(event) {
+    
+    navBox.innerHTML = "";
 
-        if ((i + 1) === contentList.length) {
-            navElement.classList.add("all-category");
-        }
-
-        let columnIndex = parseInt(i / rows);
-        navList[columnIndex].appendChild(navElement);
+    if (event.target === otherMusic) {
+        fillModalNavOther(MODAL_MUSICA, 6, 4);
+    } else if (event.target === otherFestival) {
+        fillModalNavOther(MODAL_FESTIVAL, 4, 4);
+    } else if (event.target === otherArte) {
+        fillModalNavOther(MODAL_ARTE, 6, 4);
+    } else if (event.target === otherSport) {
+        fillModalNavOther(MODAL_SPORT, 6, 4);
+    } else if (event.target === otherTempo) {
+        fillModalNavOther(MODAL_TEMPO, 5, 4);
     }
 }
