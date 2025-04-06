@@ -5,210 +5,158 @@ const sport = document.querySelector("#Sport");
 const tempo = document.querySelector("#Tempo");
 const altro = document.querySelector("#Altro");
 
+const MODAL_MUSICA = [
+    "Alternative/Indie Rock", "Canto Corale", "Chanson", "Concerti", "Concerto di Natale", "Dance Band",
+    "Dance Elettronica", "Flamenco/Rumba", "Folk/Country", "Hard Rock/Metal", "Hip-hop/R&B", "Italiano",
+    "Jazz/Blues", "Musica classica", "Musica contemporanea per adulti", "Musica religiosa", "Musica tradizionale", "Progressive Rock",
+    "Reggae", "Rock/Pop", "Soul", "World Music", "Altri - Musica", "Tutti Musica ➔"
+];
+
+const MODAL_FESTIVAL = [
+    "Festival Blues", "Festival culturali", "Festival Dance Elettronica", "Festival del cinema",
+    "Festival di arte/cultura", "Festival di comicità", "Festival di musica classica", "Festival di teatro",
+    "Festival Jazz", "Festival musicali", "Festival per bambini", "Festival per studenti",
+    "Festival sportivi", "Festival Rock/Pop", "Altri - Festival", "Tutti Festival ➔"
+];
+
+const MODAL_ARTE = [
+    "Alberghi/Ristoranti", "Arte & Teatro", "Balletto", "Balletto & Danza", "Black Light Theater",
+    "Cibi/Bevande", "Cinema", "Circo", "Comicità - Arte & Teatro", "Conferenze", "Danza",
+    "Letture", "Magia", "Multimedia", "Musei & Esposizioni", "Musical", "Opera", "Spettacoli",
+    "Spettacoli Varietà/Tributo", "Teatro", "Vacanze", "Wellness", "Altri - Arte & Teatro", "Tutti Arte & Teatro ➔"
+];
+
+const MODAL_SPORT = [
+    "Arti marziali", "Atletica leggera", "Baseball", "Basket", "Calcio", "Ciclismo", "eSport", "Gala & Show sportivi",
+    "Golf", "Hockey sul ghiaccio", "Ippica", "Manifestazioni sportive", "Palestra/Fitness", "Pallamano",
+    "Pattinaggio sul ghiaccio", "Pugilato", "Rugby", "Sci", "Scuola calcio", "Sport Motoristici",
+    "Tennis", "Volley", "Wrestling", "Tutti Sport ➔"
+];
+
+const MODAL_TEMPO = [
+    "Balletto per bambini", "Circo per tutta la famiglia", "Feste", "Fiere & Esposizioni", "Musica & Teatro per bambini",
+    "Musica per bambini", "Opera per bambini", "Partecipazione", "Per tutta la famiglia", "Spettacoli di burattini",
+    "Spettacoli di magia per bambini", "Spettacoli per tutta la famiglia", "Spettacoli sul ghiaccio", "Teatro per bambini",
+    "Trasporto", "Viaggi evento", "Visite guidate/Esposizioni", "Altro", "Altri - Tempo libero", "Tutti Tempo Libero ➔"
+];
+
 const navButtons = [musica, festival, arte, sport, tempo, altro];
 
 for(let i = 0; i < navButtons.length; i++) {
-    navButtons[i].addEventListener("click", modalNav);
+    navButtons[i].addEventListener("click", openModalNav);
 }
 
 const modal = document.querySelector("#modal-nav-desktop");
 modal.addEventListener("blur", closeModalNav);
 
+const wrapper = document.querySelector("#nav-box-wrapper");
+const navSidebar = document.querySelector("#nav-sidebar");
+
 const navBox = document.createElement("div");
 navBox.classList.add("nav-box");
 const discoverMore = document.createElement("h2");
-discoverMore.innerHTML = "Scoprire </br> di più";
 
 function closeModalNav(event) {
-    modal.innerHTML = "";
     navBox.innerHTML = "";
+    wrapper.innerHTML = "";
     modal.classList.add('hidden');
+    navSidebar.classList.add('hidden');
+    navSidebar.classList.remove('nav-sidebar-style');
+    modal.classList.remove('other-navigation');
     for(let i = 0; i < navButtons.length; i++) {
-        navButtons[i].addEventListener("click", modalNav);
+        navButtons[i].addEventListener("click", openModalNav);
         navButtons[i].classList.add('nav-b-hover');
         navButtons[i].classList.remove('nav-b-inactive');
         navButtons[i].classList.remove('nav-b-active');
-    }   
-
+    }
 }
 
-function modalNav(event) {
-
+function openModalNav(event) {
     modal.classList.remove('hidden');
     modal.focus();
-    for(let i = 0; i < navButtons.length; i++) {
-        navButtons[i].removeEventListener("click", modalNav);
+    for (let i = 0; i < navButtons.length; i++) {
+        navButtons[i].removeEventListener("click", openModalNav);
         navButtons[i].classList.remove('nav-b-hover');
         navButtons[i].classList.add('nav-b-inactive');
     }
     event.target.classList.add('nav-b-active');
 
-    if(event.target === navButtons[0]) {
-        modalMusica();
-    }else if(event.target === navButtons[1]) {
-        modalFestival();
-    }else if(event.target === navButtons[2]) {
-        modalArte();
-    }else if(event.target === navButtons[3]) {
-        modalSport();
-    }else if(event.target === navButtons[4]) {
-        modalTempo();
-    }else if(event.target === navButtons[5]) {
-        modalAltro();
-    }
-
-}
-
-function modalMusica() {
-
-    modal.appendChild(navBox);
-    discoverMore.classList.add("nav-title");
-    navBox.appendChild(discoverMore);
-
-    let navList = [];
-    for (let i = 0; i < 4; i++) { // 4 colonne
-        navList[i] = document.createElement("div");
-        navList[i].classList.add("nav-list");
-    }
-
-    let navElements = [];
-    for (let i = 0; i < 24; i++) { // 24 elementi totali
-        navElements[i] = document.createElement("a");
-        navElements[i].href = "#";
-    }
-
-    for (let i = 0; i < 4; i++) {
-        navBox.appendChild(navList[i]);
-        switch (i) {
-            case 0:
-                navElements[0].textContent = "Alternative/Indie Rock";
-                navList[0].appendChild(navElements[0]);
-                navElements[1].textContent = "Canto Corale";
-                navList[0].appendChild(navElements[1]);
-                navElements[2].textContent = "Chanson";
-                navList[0].appendChild(navElements[2]);
-                navElements[3].textContent = "Concerti";
-                navList[0].appendChild(navElements[3]);
-                navElements[4].textContent = "Concerto di Natale";
-                navList[0].appendChild(navElements[4]);
-                navElements[5].textContent = "Dance Band";
-                navList[0].appendChild(navElements[5]);
-                break;
-            case 1:
-                navElements[6].textContent = "Dance Elettronica";
-                navList[1].appendChild(navElements[6]);
-                navElements[7].textContent = "Flamenco/Rumba";
-                navList[1].appendChild(navElements[7]);
-                navElements[8].textContent = "Folk/Country";
-                navList[1].appendChild(navElements[8]);
-                navElements[9].textContent = "Hard Rock/Metal";
-                navList[1].appendChild(navElements[9]);
-                navElements[10].textContent = "Hip-hop/R&B";
-                navList[1].appendChild(navElements[10]);
-                navElements[11].textContent = "Italiano";
-                navList[1].appendChild(navElements[11]);
-                break;
-            case 2:
-                navElements[12].textContent = "Jazz/Blues";
-                navList[2].appendChild(navElements[12]);
-                navElements[13].textContent = "Musica classica";
-                navList[2].appendChild(navElements[13]);
-                navElements[14].textContent = "Musica contemporanea per adulti";
-                navList[2].appendChild(navElements[14]);
-                navElements[15].textContent = "Musica religiosa";
-                navList[2].appendChild(navElements[15]);
-                navElements[16].textContent = "Musica tradizionale";
-                navList[2].appendChild(navElements[16]);
-                navElements[17].textContent = "Progressive Rock";
-                navList[2].appendChild(navElements[17]);
-                break;
-            case 3:
-                navElements[18].textContent = "Reggae";
-                navList[3].appendChild(navElements[18]);
-                navElements[19].textContent = "Rock/Pop";
-                navList[3].appendChild(navElements[19]);
-                navElements[20].textContent = "Soul";
-                navList[3].appendChild(navElements[20]);
-                navElements[21].textContent = "World Music";
-                navList[3].appendChild(navElements[21]);
-                navElements[22].textContent = "Altri - Musica";
-                navList[3].appendChild(navElements[22]);
-                navElements[23].textContent = "Tutti Musica";
-                navElements[23].classList.add("all-category");
-                navList[3].appendChild(navElements[23]);
-                break;
-            default:
-                break;
-        }
+    if (event.target === navButtons[0]) {
+        fillModalNav(MODAL_MUSICA, 6, 4);
+    } else if (event.target === navButtons[1]) {
+        fillModalNav(MODAL_FESTIVAL, 4, 4);
+    } else if (event.target === navButtons[2]) {
+        fillModalNav(MODAL_ARTE, 6, 4);
+    } else if (event.target === navButtons[3]) {
+        fillModalNav(MODAL_SPORT, 6, 4);
+    } else if (event.target === navButtons[4]) {
+        fillModalNav(MODAL_TEMPO, 5, 4);
+    } else if (event.target === navButtons[5]) {
+        fillModalNavOther(MODAL_TEMPO, 5, 4);
     }
 }
 
-function modalFestival() {
-
-    modal.appendChild(navBox);
+function fillModalNav(contentList, rows, columns) {
+    modal.appendChild(wrapper);
+    wrapper.appendChild(navBox);
     discoverMore.classList.add("nav-title");
+    discoverMore.classList.remove("nav-wrap-title");
+    discoverMore.innerHTML = "Scoprire </br> di più";
     navBox.appendChild(discoverMore);
 
     let navList = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < columns; i++) {
         navList[i] = document.createElement("div");
         navList[i].classList.add("nav-list");
-    }
-
-    let navElements = [];
-    for (let i = 0; i < 16; i++) {
-        navElements[i] = document.createElement("a");
-        navElements[i].href = "#";
-    }
-
-    for(let i = 0; i < 4; i++) {
         navBox.appendChild(navList[i]);
-        switch(i) {
-            case 0:
-                navElements[0].textContent = "Festival Blues";
-                navList[0].appendChild(navElements[0]);
-                navElements[1].textContent = "Festival culturali";
-                navList[0].appendChild(navElements[1]);
-                navElements[2].textContent = "Festival Dance Elettronica";
-                navList[0].appendChild(navElements[2]);
-                navElements[3].textContent = "Festival del cinema";
-                navList[0].appendChild(navElements[3]);
-                break;
-            case 1:
-                navElements[4].textContent = "Festival di arte/cultura";
-                navList[1].appendChild(navElements[4]);
-                navElements[5].textContent = "Festival di comicità";
-                navList[1].appendChild(navElements[5]);
-                navElements[6].textContent = "Festival di musica classica";
-                navList[1].appendChild(navElements[6]);
-                navElements[7].textContent = "Festival di teatro";
-                navList[1].appendChild(navElements[7]);
-                break;
-            case 2:
-                navElements[8].textContent = "Festival Jazz";
-                navList[2].appendChild(navElements[8]);
-                navElements[9].textContent = "Festival musicali";
-                navList[2].appendChild(navElements[9]);
-                navElements[10].textContent = "Festival per bambini";
-                navList[2].appendChild(navElements[10]);
-                navElements[11].textContent = "Festival per studenti";
-                navList[2].appendChild(navElements[11]);
-                break;
-            case 3:
-                navElements[12].textContent = "Festival sportivi";
-                navList[3].appendChild(navElements[12]);
-                navElements[13].textContent = "Festival Rock/Pop";
-                navList[3].appendChild(navElements[13]);
-                navElements[14].textContent = "Altri - Festival";
-                navList[3].appendChild(navElements[14]);
-                navElements[15].textContent = "Tutti Festival ➔";
-                navElements[15].classList.add("all-category");
-                navList[3].appendChild(navElements[15]);
-                navElements[15].classList.add("all-category");
-                navList[3].appendChild(navElements[15]);
-                break;
-            default:
-                break;
+    }
+
+    for (let i = 0; i < contentList.length; i++) {
+        let content = contentList[i];
+        let navElement = document.createElement("a");
+        navElement.href = "#";
+        navElement.textContent = content;
+
+        if ((i + 1) === contentList.length) {
+            navElement.classList.add("all-category");
         }
+
+        let columnIndex = parseInt(i / rows);
+        navList[columnIndex].appendChild(navElement);
+    }
+}
+
+function fillModalNavOther(contentList, rows, columns) {
+    modal.classList.add('other-navigation');
+    navSidebar.classList.remove('hidden');
+    navSidebar.classList.add('nav-sidebar-style');
+
+    modal.appendChild(wrapper);
+    discoverMore.classList.add("nav-wrap-title");
+    discoverMore.classList.remove("nav-title");
+    discoverMore.innerHTML = "Scoprire di più";
+    wrapper.appendChild(discoverMore);
+    wrapper.appendChild(navBox);
+    
+
+    let navList = [];
+    for (let i = 0; i < columns; i++) {
+        navList[i] = document.createElement("div");
+        navList[i].classList.add("nav-list");
+        navBox.appendChild(navList[i]);
+    }
+
+    for (let i = 0; i < contentList.length; i++) {
+        let content = contentList[i];
+        let navElement = document.createElement("a");
+        navElement.href = "#";
+        navElement.textContent = content;
+
+        if ((i + 1) === contentList.length) {
+            navElement.classList.add("all-category");
+        }
+
+        let columnIndex = parseInt(i / rows);
+        navList[columnIndex].appendChild(navElement);
     }
 }

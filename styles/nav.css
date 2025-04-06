@@ -137,7 +137,6 @@ input::placeholder{
     top: 100%;
     right: 0;
     left: 0;
-    width: 100%;
     height: auto;
     background-color: var(--almost-black);
     z-index: 2;
@@ -145,7 +144,6 @@ input::placeholder{
 
 .nav-box{
     display: flex;
-    height: 100%;
     justify-content: space-between;
     padding: 32px 40px;
 }
@@ -191,6 +189,26 @@ a.all-category:hover{
     text-decoration: underline;
 }
 
+.other-navigation{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-wrap-title{
+    padding: 32px 40px 0;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 24px;
+}
+
+.nav-sidebar-style{
+    display: flex;
+    background-color: rgb(27, 27, 27);
+    width: 25%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 24px;
+}
 
 @media (max-width: 1400px) {
     #Altro{
