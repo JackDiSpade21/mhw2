@@ -4,6 +4,7 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./mhw2.css">
+    <script src="./mhw2.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./styles/nav.css">
     <link rel="stylesheet" type="text/css" href="./styles/header.css">
     <link rel="stylesheet" type="text/css" href="./styles/footer.css">
@@ -34,12 +35,12 @@
                 <img src="./icons/logo.png">
             </div>
             <div id="navigation">
-                <div id="Musica" class="nav-button"><a href="#">Musica</a></div>
-                <div id="Festival" class="nav-button"><a href="#">Festival</a></div>
-                <div id="Arte" class="nav-button"><a href="#">Arte & Teatro</a></div>
-                <div id="Sport" class="nav-button"><a href="#">Sport</a></div>
-                <div id="Tempo" class="nav-button"><a href="#">Tempo libero</a></div>
-                <div id="Altro" class="nav-button"><a href="#">Altro</a></div>
+                <div tabindex="0" id="Musica" class="nav-button nav-b-hover">Musica</div>
+                <div tabindex="0" id="Festival" class="nav-button nav-b-hover">Festival</div>
+                <div tabindex="0" id="Arte" class="nav-button nav-b-hover">Arte & Teatro</div>
+                <div tabindex="0" id="Sport" class="nav-button nav-b-hover">Sport</div>
+                <div tabindex="0" id="Tempo" class="nav-button nav-b-hover">Tempo libero</div>
+                <div tabindex="0" id="Altro" class="nav-button nav-b-hover">Altro</div>
             </div>
         </div>
         <div id="functions">
@@ -49,7 +50,38 @@
             </div>
             <div id="login"><img id="person" src="./icons/person.png"></img><a href="#">Accedi/Registrati</a></div>
         </div>
+
+        <div tabindex="0" id="modal-nav-desktop" class="hidden">
+            <!-- <div class="nav-box">
+                <h2 class="nav-title">scoprire</br> di più</h2>
+                <div class="nav-list">
+                    <a href="#">Festival Blues</a>
+                    <a href="#">Festival culturali</a>
+                    <a href="#">Festival Dance Elettronica</a>
+                    <a href="#">Festival del cinema</a> 
+                </div>
+                <div class="nav-list">
+                    <a href="#">Festival di arte/cultura</a>
+                    <a href="#">Festival di comicità</a>
+                    <a href="#">Festival di musica classica</a>
+                    <a href="#">Festival di teatro</a>
+                </div>
+                <div class="nav-list">
+                    <a href="#">Festival Jazz</a>
+                    <a href="#">Festival musicali</a>
+                    <a href="#">Festival per bambini</a>
+                    <a href="#">Festival per studenti</a>
+                </div>
+                <div class="nav-list">
+                    <a href="#">Festival sportivi</a>
+                    <a href="#">Festival Rock/Pop</a>
+                    <a href="#">Altri - Festival</a>
+                    <a class="all-category" href="#">Tutti Festival ➔</a>
+                </div>
+            </div> -->
+        </div>
     </nav>
+
     <div id="barwrapper">
         <div id="mobilebar" class="searchbar">
             <input type="text" placeholder="Artista, Evento o Località"></input>

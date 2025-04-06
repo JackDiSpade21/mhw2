@@ -262,6 +262,10 @@ body{
     margin: 5% 0 5% 2%;
 }
 
+.hidden{
+    display: none;
+}
+
 @media (max-width: 1400px) {
 
     #most-wanted{

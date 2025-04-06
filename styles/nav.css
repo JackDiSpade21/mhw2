@@ -6,6 +6,9 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    font-weight: bold;
+    color: white;
 }
 
 .logo{
@@ -34,7 +37,6 @@ nav a{
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     flex-shrink: 0;
 }
 
@@ -93,8 +95,13 @@ input::placeholder{
 }
 
 #functions #login:hover,
-#navigation div:hover{
+.nav-b-hover:hover{
     background-color: rgb(2, 65, 187);
+    cursor: pointer;
+}
+
+#navigation div{
+    padding: 0 8px;
 }
 
 #functions{
@@ -113,13 +120,84 @@ input::placeholder{
     display: none;
 }
 
+.nav-b-inactive{
+    cursor: default;
+}
+
+.nav-b-active{
+    background-color: rgb(2, 65, 187);
+}
+
+.hidden{
+    display: none;
+}
+
+#modal-nav-desktop{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--almost-black);
+    z-index: 2;
+}
+
+.nav-box{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    padding: 32px 40px;
+}
+
+.nav-title{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 0.88;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 17%;
+    justify-content: space-between;
+    margin: -10px 0;
+}
+
+.nav-list a{
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-list a:hover{
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: rgb(191, 191, 191);
+}
+
+a.all-category{
+    color: rgb(48, 116, 254);
+}
+
+a.all-category:hover{
+    color: rgb(48, 116, 254);
+    text-decoration: underline;
+}
+
+
 @media (max-width: 1400px) {
     #Altro{
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
         flex-shrink: 0;
     }
 
