@@ -145,7 +145,7 @@ footer a{
     align-items: center;
 }
 
-#down-arrow{
+#footer-arrow{
     display: none;
 }
 
@@ -169,6 +169,18 @@ footer a{
 #scroll-arrow:hover{
     cursor: pointer;
     background-color: rgb(1, 57, 167);
+}
+
+.lista-mobile{
+    display: none;
+}
+
+.lista-mobile a {
+    padding: 10px 0;
+}
+
+.lista-mobile a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 1100px) {
@@ -235,6 +247,18 @@ footer a{
         align-items: center;
     }
 
+    .elenco:hover{
+        background-color: rgb(15, 15, 15);
+        border-radius: 4px;
+    }
+
+    .lista-mobile{
+        display: flex;
+        flex-direction: column;
+        align-self: start;
+        margin-bottom: 10px;
+    }
+
     #collegamenti{
         width: 100%;
         justify-content: center;
@@ -243,7 +267,7 @@ footer a{
         flex-direction: column;
     }
 
-    #down-arrow{
+    #footer-arrow{
         display: block;
         height: 27px;
         width: 27px;

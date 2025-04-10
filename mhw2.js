@@ -17,6 +17,12 @@ const closeButton = document.querySelector("#close-button");
 closeButton.addEventListener("click", closeMobileMenu);
 const mobileMenu = document.querySelector("#mobile-menu-nav");
 
+const footerElement = document.querySelectorAll(".elenco");
+for(let i = 0; i < footerElement.length; i++){
+    footerElement[i].addEventListener("click", toggleFooterSection);
+}
+const footerSection = document.querySelectorAll("#mobilelist");
+
 const MODAL_MUSICA = [
     "Alternative/Indie Rock", "Canto Corale", "Chanson", "Concerti", "Concerto di Natale", "Dance Band",
     "Dance Elettronica", "Flamenco/ Rumba", "Folk/ Country", "Hard Rock/Metal", "Hip-hop/ R&B", "Italiano",
@@ -198,4 +204,26 @@ function closeMobileMenu() {
     mobileMenu.classList.add("hidden");
     mobileMenu.classList.remove("mobile-menu-style");
     document.body.classList.remove("no-scroll");
+}
+
+function toggleFooterSection(event){
+    const imgChild = event.currentTarget.querySelector("img");
+
+    for(let i = 0; i < footerSection.length; i++){
+        if(footerSection[i].dataset.cat === event.currentTarget.dataset.cat){
+            if(footerSection[i].classList.contains("hidden")){
+                footerSection[i].classList.remove("hidden");
+                footerSection[i].classList.add("lista-mobile");
+                imgChild.src = "./icons/uparrow.png";
+            }
+            else{
+                footerSection[i].classList.add("hidden");
+                footerSection[i].classList.remove("lista-mobile");
+                imgChild.src = "./icons/downarrow.png";
+            }
+
+            break;
+        }
+    }
+
 }
