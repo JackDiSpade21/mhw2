@@ -17,11 +17,32 @@ const closeButton = document.querySelector("#close-button");
 closeButton.addEventListener("click", closeMobileMenu);
 const mobileMenu = document.querySelector("#mobile-menu-nav");
 
+const navButtons = [musica, festival, arte, sport, tempo, altro];
+const otherButtons = [otherMusic, otherFestival, otherArte, otherSport, otherTempo];
+
+for(let i = 0; i < navButtons.length; i++) {
+    navButtons[i].addEventListener("click", openModalNav);
+}
+
+for(let i = 0; i < otherButtons.length; i++) {
+    otherButtons[i].addEventListener("click", changeOtherNav);
+}
+
+const modal = document.querySelector("#modal-nav-desktop");
+document.addEventListener("click", closeModalNav);
+
+const wrapper = document.querySelector("#nav-box-wrapper");
+const navSidebar = document.querySelector("#nav-sidebar");
+
+const navBox = document.createElement("div");
+navBox.classList.add("nav-box");
+const discoverMore = document.createElement("h2");
+
 const footerElement = document.querySelectorAll(".elenco");
 for(let i = 0; i < footerElement.length; i++){
     footerElement[i].addEventListener("click", toggleFooterSection);
 }
-const footerSection = document.querySelectorAll("#mobilelist");
+const footerSection = document.querySelectorAll(".mobilelist");
 
 const MODAL_MUSICA = [
     "Alternative/Indie Rock", "Canto Corale", "Chanson", "Concerti", "Concerto di Natale", "Dance Band",
@@ -58,28 +79,12 @@ const MODAL_TEMPO = [
     "Trasporto", "Viaggi evento", "Visite guidate/ Esposizioni", "Altro", "Altri - Tempo libero", "Tutti Tempo Libero ➔"
 ];
 
-const navButtons = [musica, festival, arte, sport, tempo, altro];
-const otherButtons = [otherMusic, otherFestival, otherArte, otherSport, otherTempo];
-
-for(let i = 0; i < navButtons.length; i++) {
-    navButtons[i].addEventListener("click", openModalNav);
-}
-
-for(let i = 0; i < otherButtons.length; i++) {
-    otherButtons[i].addEventListener("click", changeOtherNav);
-}
-
-const modal = document.querySelector("#modal-nav-desktop");
-modal.addEventListener("blur", closeModalNav);
-
-const wrapper = document.querySelector("#nav-box-wrapper");
-const navSidebar = document.querySelector("#nav-sidebar");
-
-const navBox = document.createElement("div");
-navBox.classList.add("nav-box");
-const discoverMore = document.createElement("h2");
-
 function closeModalNav(event) {
+
+    if (modal.contains(event.target)) {
+        return;
+    }
+
     navBox.innerHTML = "";
     wrapper.innerHTML = "";
     wrapper.classList.remove("nav-wrap-size");
@@ -96,26 +101,28 @@ function closeModalNav(event) {
 }
 
 function openModalNav(event) {
+
     modal.classList.remove('hidden');
     modal.focus();
+    event.stopPropagation();
     for (let i = 0; i < navButtons.length; i++) {
         navButtons[i].removeEventListener("click", openModalNav);
         navButtons[i].classList.remove('nav-b-hover');
         navButtons[i].classList.add('nav-b-inactive');
     }
-    event.target.classList.add('nav-b-active');
+    event.currentTarget.classList.add('nav-b-active');
 
-    if (event.target === navButtons[0]) {
+    if (event.currentTarget === navButtons[0]) {
         fillModalNav(MODAL_MUSICA, 6, 4);
-    } else if (event.target === navButtons[1]) {
+    } else if (event.currentTarget === navButtons[1]) {
         fillModalNav(MODAL_FESTIVAL, 4, 4);
-    } else if (event.target === navButtons[2]) {
+    } else if (event.currentTarget === navButtons[2]) {
         fillModalNav(MODAL_ARTE, 6, 4);
-    } else if (event.target === navButtons[3]) {
+    } else if (event.currentTarget === navButtons[3]) {
         fillModalNav(MODAL_SPORT, 6, 4);
-    } else if (event.target === navButtons[4]) {
+    } else if (event.currentTarget === navButtons[4]) {
         fillModalNav(MODAL_TEMPO, 5, 4);
-    } else if (event.target === navButtons[5]) {
+    } else if (event.currentTarget === navButtons[5]) {
         fillModalNavOther(MODAL_TEMPO, 5, 4);
     }
 }
@@ -178,17 +185,17 @@ function changeOtherNav(event) {
     for(let i = 0; i < otherButtons.length; i++) {
         otherButtons[i].classList.remove('other-active');
     }
-    event.target.classList.add('other-active');
+    event.currentTarget.classList.add('other-active');
 
-    if (event.target === otherMusic) {
+    if (event.currentTarget === otherMusic) {
         fillModalNavOther(MODAL_MUSICA, 6, 4);
-    } else if (event.target === otherFestival) {
+    } else if (event.currentTarget === otherFestival) {
         fillModalNavOther(MODAL_FESTIVAL, 4, 4);
-    } else if (event.target === otherArte) {
+    } else if (event.currentTarget === otherArte) {
         fillModalNavOther(MODAL_ARTE, 6, 4);
-    } else if (event.target === otherSport) {
+    } else if (event.currentTarget === otherSport) {
         fillModalNavOther(MODAL_SPORT, 6, 4);
-    } else if (event.target === otherTempo) {
+    } else if (event.currentTarget === otherTempo) {
         fillModalNavOther(MODAL_TEMPO, 5, 4);
     }
 }
