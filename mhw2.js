@@ -103,7 +103,6 @@ function closeModalNav(event) {
 function openModalNav(event) {
 
     modal.classList.remove('hidden');
-    modal.focus();
     event.stopPropagation();
     for (let i = 0; i < navButtons.length; i++) {
         navButtons[i].removeEventListener("click", openModalNav);
