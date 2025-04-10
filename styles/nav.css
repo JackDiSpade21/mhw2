@@ -11,6 +11,10 @@ nav{
     color: white;
 }
 
+#mobile-menu{
+    display: none;
+}
+
 .logo{
     width: 180px;
     height: 32px;
@@ -129,10 +133,6 @@ input::placeholder{
     background-color: rgb(2, 65, 187);
 }
 
-.hidden{
-    display: none;
-}
-
 #modal-nav-desktop{
     position: absolute;
     top: 100%;
@@ -195,6 +195,17 @@ a.all-category:hover{
     justify-content: space-between;
 }
 
+.other-buttons{
+    color: rgb(214, 214, 214);
+    text-decoration: none;
+}
+
+.other-buttons:hover{
+    color: rgb(214, 214, 214);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .nav-wrap-title{
     padding: 32px 40px 0;
     text-transform: uppercase;
@@ -214,8 +225,106 @@ a.all-category:hover{
     width: 20%;
     min-height: 300px;
     flex-direction: column;
-    justify-content: space-between;
     padding: 32px 24px;
+}
+
+.other-active{
+    text-decoration: underline;
+    color: white;
+
+}
+
+.other-active:hover{
+    text-decoration: underline;
+    color: white;
+
+}
+
+.mobile-menu-style{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 50vh;
+    background-color: rgb(18, 18, 18);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.mobile-menu-style a{
+    color: white;
+}
+
+.menu-item:hover a{
+    color: lightgray;
+    text-decoration: underline;
+}
+
+.menu-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 16px;
+}
+
+.menu-hoverable:hover{
+    background-color: rgb(77, 77, 77);
+}
+
+#dividermobile-top{
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+#paypalmobile{
+    margin-top: 30px;
+    width: 50%;
+}
+
+#close-button{
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+#close-button:hover{
+    background-color: rgb(77, 77, 77);
+    cursor: pointer;
+}
+
+#menutop{
+    padding: 20px 5px 5px 5px;
+}
+
+#menubottom{
+    padding: 5px 5px 20px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#dividermobile{
+    width: 98%;
+    align-self: center;
+    margin: 10px 0;
+}
+
+#dividermobile-top,
+#dividermobile div{
+    border-top: 1px solid rgb(65, 65, 65);
+    border-radius: 4px;
+}
+
+.hidden{
+    display: none;
+}
+
+.no-scroll{
+    overflow: hidden;
 }
 
 @media (max-width: 1400px) {
@@ -259,6 +368,7 @@ a.all-category:hover{
 }
 
 @media (max-width: 900px) {
+
     #Altro{
         display: none;
     }
@@ -266,6 +376,16 @@ a.all-category:hover{
     nav{
         height: 60px;
         padding: 0 16px;
+    }
+
+    #mobile-menu{
+        display: block;
+        padding: 10px;
+    }
+
+    #mobile-menu:hover{
+        background-color: rgb(2, 65, 187);
+        display: block;
     }
 
     .searchbar{
@@ -276,17 +396,21 @@ a.all-category:hover{
         height: 24px;
     }
 
-    #menu{
-        display: block;
-        margin-right: 10px;
+    #login a{
+        display: none;
     }
 
-    #login a{
+    #modal-nav-desktop{
         display: none;
     }
 }
 
 @media (max-width: 720px) {
+
+    .mobile-menu-style{
+        width: 100%;
+    }
+
     #webbar{
         display: none;
     }

@@ -11,6 +11,12 @@ const otherArte = document.querySelector("#other-art");
 const otherSport = document.querySelector("#other-sport");
 const otherTempo = document.querySelector("#other-tempo");
 
+const mobileMenuButton = document.querySelector("#mobile-menu");
+mobileMenuButton.addEventListener("click", openMobileMenu);
+const closeButton = document.querySelector("#close-button");
+closeButton.addEventListener("click", closeMobileMenu);
+const mobileMenu = document.querySelector("#mobile-menu-nav");
+
 const MODAL_MUSICA = [
     "Alternative/Indie Rock", "Canto Corale", "Chanson", "Concerti", "Concerto di Natale", "Dance Band",
     "Dance Elettronica", "Flamenco/ Rumba", "Folk/ Country", "Hard Rock/Metal", "Hip-hop/ R&B", "Italiano",
@@ -54,7 +60,6 @@ for(let i = 0; i < navButtons.length; i++) {
 }
 
 for(let i = 0; i < otherButtons.length; i++) {
-    console.log(otherButtons[i]);
     otherButtons[i].addEventListener("click", changeOtherNav);
 }
 
@@ -164,6 +169,10 @@ function fillModalNavOther(contentList, rows, columns) {
 function changeOtherNav(event) {
     
     navBox.innerHTML = "";
+    for(let i = 0; i < otherButtons.length; i++) {
+        otherButtons[i].classList.remove('other-active');
+    }
+    event.target.classList.add('other-active');
 
     if (event.target === otherMusic) {
         fillModalNavOther(MODAL_MUSICA, 6, 4);
@@ -176,4 +185,17 @@ function changeOtherNav(event) {
     } else if (event.target === otherTempo) {
         fillModalNavOther(MODAL_TEMPO, 5, 4);
     }
+}
+
+function openMobileMenu(){
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.add("mobile-menu-style");
+    mobileMenu.style.top = window.pageYOffset + 'px';
+    document.body.classList.add("no-scroll");
+}
+
+function closeMobileMenu() {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("mobile-menu-style");
+    document.body.classList.remove("no-scroll");
 }
